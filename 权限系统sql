@@ -1,0 +1,14 @@
+DROP TABLE role;
+CREATE TABLE role (id int(10) NOT NULL AUTO_INCREMENT, name varchar(50), PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=utf8 DEFAULT COLLATE=utf8_general_ci;
+INSERT INTO role (id, name) VALUES (1, 'ROLE_NORMAL');
+INSERT INTO role (id, name) VALUES (2, 'ROLE_ADMIN');
+
+DROP TABLE user;
+CREATE TABLE user (id int(10) NOT NULL AUTO_INCREMENT, username varchar(50), password varchar(500), PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=utf8 DEFAULT COLLATE=utf8_general_ci;
+INSERT INTO user (id, username, password) VALUES (1, 'zbc', '$2a$10$iPgCm4kLxxaYQNuGvDvy7uJVSdkOPLztVD9plv6acQUmdk5zGzm56');
+INSERT INTO user (id, username, password) VALUES (2, 'zt', '123');
+
+DROP TABLE user_roles;
+CREATE TABLE user_roles (user_id int(10) NOT NULL, roles_id int(10) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8 DEFAULT COLLATE=utf8_general_ci;
+INSERT INTO user_roles (user_id, roles_id) VALUES (1, 1);
+INSERT INTO user_roles (user_id, roles_id) VALUES (1, 2);
